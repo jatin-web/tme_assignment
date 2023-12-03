@@ -36,3 +36,12 @@ List<RewardModel> rewardsList = [
       imagePath: "assets/icons/spends_tracker.png", title: "Spends Tracker"),
   RewardModel(imagePath: "assets/icons/gold.png", title: "GoldX"),
 ];
+
+List<String> storyImagesList = [
+  "https://i.pinimg.com/736x/e5/73/63/e5736352361ae7483a7f8bb4e1c7c801.jpg",
+  "https://www.shutterstock.com/shutterstock/photos/2136269523/display_1500/stock-vector-hi-tech-hologram-of-planet-earth-with-glowing-vector-chart-of-investment-financial-data-graph-2136269523.jpg",
+  "https://www.shutterstock.com/shutterstock/photos/1322351879/display_1500/stock-vector-business-arrow-target-direction-concept-to-success-finance-growth-vision-stretching-rising-up-1322351879.jpg"
+];
+
+List<int> rupeeSampleList = [10, 15, 20, 25, 50];
+List<double> gramSampleList = [0.1, 0.5, 1.0, 1.5, 2.0];

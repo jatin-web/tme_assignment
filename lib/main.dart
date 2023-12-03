@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:tme_pune/constants.dart';
 import 'package:tme_pune/route_navigator.dart';
 import 'package:tme_pune/view/screen/home_screen.dart';
+import 'package:tme_pune/view/screen/save_manually_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

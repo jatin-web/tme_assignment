@@ -6,7 +6,7 @@ import 'package:tme_pune/view/screen/tabs/home_tab.dart';
 import 'package:tme_pune/view/screen/tabs/transactions_tab.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName = "home_screen";
+  static const String routeName = "/";
   const HomeScreen({super.key});
 
   @override

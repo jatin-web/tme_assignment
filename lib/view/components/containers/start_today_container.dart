@@ -39,9 +39,22 @@ class StartTodayContainer extends StatelessWidget {
                 style: TextStyle(fontSize: 16, color: themeColor),
               ),
               const SizedBox(height: 20),
-              const RoundBorderButton(
-                title: "Start Today",
-                icon: Icons.arrow_forward,
+              RoundBorderButton(
+                onTap: () {},
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Start Today",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    SizedBox(width: 5),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
               ),
             ],
           ),

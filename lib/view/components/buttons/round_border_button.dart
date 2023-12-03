@@ -3,34 +3,31 @@ import 'package:tme_pune/constants.dart';
 
 class RoundBorderButton extends StatelessWidget {
   const RoundBorderButton(
-      {super.key, required this.title, this.icon, this.color});
-  final String title;
-  final IconData? icon;
+      {super.key,
+      required this.child,
+      required this.onTap,
+      this.color,
+      this.height});
+  final Widget child;
+  final Function onTap;
   final Color? color;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ButtonStyle(
-          shape: MaterialStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-          backgroundColor: MaterialStatePropertyAll(color ?? themeColor),
-          padding: const MaterialStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: 20, vertical: 10))),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(color: Colors.white),
-          ),
-          const SizedBox(width: 5),
-          Icon(
-            icon,
-            color: Colors.white,
-          )
-        ],
+    return SizedBox(
+      height: height,
+      child: ElevatedButton(
+        onPressed: () {
+          onTap();
+        },
+        style: ButtonStyle(
+            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))),
+            backgroundColor: MaterialStatePropertyAll(color ?? themeColor),
+            padding: const MaterialStatePropertyAll(
+                EdgeInsets.symmetric(horizontal: 20, vertical: 10))),
+        child: child,
       ),
     );
   }
