@@ -142,7 +142,11 @@ class _HomeTabState extends State<HomeTab> {
   SliverAppBar _getAppBar() => SliverAppBar(
         toolbarHeight: 65,
         backgroundColor: Colors.transparent,
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+        leading: IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(Icons.menu)),
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),

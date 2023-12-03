@@ -53,9 +53,7 @@ class _EditDetailsDialogState extends State<EditDetailsDialog> {
                     ),
                   )),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             FilledButton(
               style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(buttonColor1),

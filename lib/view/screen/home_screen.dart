@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tme_pune/constants.dart';
+import 'package:tme_pune/view/components/drawer/my_drawer.dart';
 import 'package:tme_pune/view/screen/tabs/accounts_tab.dart';
 import 'package:tme_pune/view/screen/tabs/home_tab.dart';
 import 'package:tme_pune/view/screen/tabs/transactions_tab.dart';
@@ -13,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int index = 2;
+  int index = 0;
   static const List<Widget> _tabs = [
     HomeTab(),
     TransactionsTab(),
@@ -24,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: themeColor,
+      drawer: const MyDrawer(),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
             border: Border(top: BorderSide(color: Colors.grey, width: 0.2))),
@@ -55,33 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   icon: Icon(Icons.person_outline)),
             ]),
       ),
-      // bottomNavigationBar: NavigationBar(
-      //   onDestinationSelected: (int i) {
-      //     setState(() {
-      //       index = i;
-      //     });
-      //   },
-      //   indicatorColor: Colors.amber,
-      //   selectedIndex: index,
-      //   destinations: const <Widget>[
-      //     NavigationDestination(
-      //       selectedIcon: Icon(Icons.home),
-      //       icon: Icon(Icons.home_outlined),
-      //       label: 'Home',
-      //     ),
-      //     NavigationDestination(
-      //       icon: Badge(child: Icon(Icons.notifications_sharp)),
-      //       label: 'Notifications',
-      //     ),
-      //     NavigationDestination(
-      //       icon: Badge(
-      //         label: Text('2'),
-      //         child: Icon(Icons.messenger_sharp),
-      //       ),
-      //       label: 'Messages',
-      //     ),
-      //   ],
-      // ),
       body: _tabs[index],
     );
   }

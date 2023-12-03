@@ -3,14 +3,20 @@ import 'package:tme_pune/constants.dart';
 import 'package:tme_pune/data/models/reward_model.dart';
 
 class RewardContainer extends StatelessWidget {
-  const RewardContainer({super.key, required this.rewardModel});
+  const RewardContainer(
+      {super.key, required this.rewardModel, this.isOutlined = false});
   final RewardModel rewardModel;
+  final bool isOutlined;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-          color: fadedThemeColor, borderRadius: BorderRadius.circular(10)),
+          color: isOutlined ? themeColor : fadedThemeColor,
+          borderRadius: BorderRadius.circular(10),
+          border:
+              isOutlined ? Border.all(color: fadedThemeColor, width: 2) : null),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -18,12 +24,14 @@ class RewardContainer extends StatelessWidget {
           if (rewardModel.imagePath != null)
             Image.asset(
               rewardModel.imagePath!,
-              height: 40,
+              height: 35,
             ),
           const SizedBox(height: 15),
           Text(
             rewardModel.title ?? "",
-            style: const TextStyle(fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: isOutlined ? lightPurpleColor : Colors.white,
+                fontSize: 15),
           ),
         ],
       ),
