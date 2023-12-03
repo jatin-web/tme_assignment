@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:tme_pune/constants.dart';
+import 'package:tme_pune/data/provider/gold_price_provider.dart';
 import 'package:tme_pune/route_navigator.dart';
 import 'package:tme_pune/view/screen/home_screen.dart';
-import 'package:tme_pune/view/screen/save_manually_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -20,15 +21,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: themeColor,
-          brightness: Brightness.dark,
+    return ChangeNotifierProvider(
+      create: (context) => GoldPriceProvider(),
+      child: MaterialApp(
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: themeColor,
+            brightness: Brightness.dark,
+          ),
         ),
+        onGenerateRoute: RouteNavigator.onGenerateRoute,
+        initialRoute: HomeScreen.routeName,
       ),
-      onGenerateRoute: RouteNavigator.onGenerateRoute,
-      initialRoute: HomeScreen.routeName,
     );
   }
 }

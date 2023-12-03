@@ -43,5 +43,5 @@ List<String> storyImagesList = [
   "https://www.shutterstock.com/shutterstock/photos/1322351879/display_1500/stock-vector-business-arrow-target-direction-concept-to-success-finance-growth-vision-stretching-rising-up-1322351879.jpg"
 ];
 
-List<int> rupeeSampleList = [10, 15, 20, 25, 50];
+List<double> rupeeSampleList = [10, 15, 20, 25, 50];
 List<double> gramSampleList = [0.1, 0.5, 1.0, 1.5, 2.0];

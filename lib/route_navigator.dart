@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tme_pune/view/screen/home_screen.dart';
-import 'package:tme_pune/view/screen/save_manually_screen.dart';
+import 'package:tme_pune/view/screen/save_manually/save_manually_screen.dart';
 import 'package:tme_pune/view/screen/story_screen.dart';
 
 class RouteNavigator {

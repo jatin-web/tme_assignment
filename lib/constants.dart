@@ -5,3 +5,6 @@ Color fadedThemeColor = const Color(0xff312360);
 Color buttonColor1 = const Color(0xff5D12D2);
 Color lightPurpleColor = Colors.purple.shade50;
 String rupee = "₹";
+double oneGramGoldPrice = 6714.84;
+
+enum DataTypeForInvestment { rupee, gold }

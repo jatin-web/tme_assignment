@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tme_pune/constants.dart';
 import 'package:tme_pune/view/components/buttons/round_border_button.dart';
+import 'package:tme_pune/view/screen/save_manually/save_manually_screen.dart';
 
 class StartTodayContainer extends StatelessWidget {
   const StartTodayContainer({super.key});
@@ -40,7 +41,9 @@ class StartTodayContainer extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               RoundBorderButton(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, SaveManuallyScreen.routeName);
+                },
                 child: const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
