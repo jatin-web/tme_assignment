@@ -4,7 +4,7 @@ import 'package:tme_pune/data/models/quick_action_model.dart';
 
 class QucikActionContainer extends StatelessWidget {
   const QucikActionContainer({super.key, required this.quickActionModel});
-  final QuickActionModel quickActionModel;
+  final ExploreOptionModel quickActionModel;
 
   @override
   Widget build(BuildContext context) {

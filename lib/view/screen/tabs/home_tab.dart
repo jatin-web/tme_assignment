@@ -3,6 +3,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:tme_pune/constants.dart';
 import 'package:tme_pune/view/components/buttons/status_button.dart';
 import 'package:tme_pune/view/components/containers/live_gold_price_icon_container.dart';
+import 'package:tme_pune/view/components/containers/quest_container.dart';
 import 'package:tme_pune/view/screen/page_not_built.dart';
 import 'package:tme_pune/view/screen/periodic_savings/daily_savings_screen.dart';
 import 'package:tme_pune/view/screen/save_manually/save_manually_screen.dart';
@@ -151,6 +152,55 @@ class _HomeTabState extends State<HomeTab> {
                       ),
                     );
                   },
+                )
+              ],
+            ),
+          ),
+        ),
+
+        getSliverGap(height: 10),
+
+        // --------------- Quest ---------------
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [getTitle("Quest"), const QuestContainer()],
+            ),
+          ),
+        ),
+
+        getSliverGap(height: 10),
+
+        // --------------- Explore More ---------------
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                getTitle("Explore More"),
+                SizedBox(
+                  height: 150,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: exploreMoreLIst.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, PageNotBuiltScreen.routeName,
+                              arguments: exploreMoreLIst[index].title);
+                        },
+                        child: QucikActionContainer(
+                            quickActionModel: exploreMoreLIst[index]),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(width: 15);
+                    },
+                  ),
                 )
               ],
             ),

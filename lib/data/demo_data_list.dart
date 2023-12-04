@@ -2,27 +2,42 @@ import 'package:tme_pune/constants.dart';
 import 'package:tme_pune/data/models/quick_action_model.dart';
 import 'package:tme_pune/data/models/reward_model.dart';
 
-List<QuickActionModel> quickActionsList = [
-  QuickActionModel(
+List<ExploreOptionModel> quickActionsList = [
+  ExploreOptionModel(
       imagePath: "assets/icons/spin_to_win.png",
       title: "Spin to Win",
       description: "Upto ${rupee}18 worth of Extra Gold"),
-  QuickActionModel(
+  ExploreOptionModel(
       imagePath: "assets/icons/credit_score.png",
       title: "Credit Score",
       description: "Check and improve your financial health"),
-  QuickActionModel(
+  ExploreOptionModel(
       imagePath: "assets/icons/emi_cal.png",
       title: "EMI Calculator",
       description: "See EMI rates for any amount & interest value"),
-  QuickActionModel(
+  ExploreOptionModel(
       imagePath: "assets/icons/savings_cal.png",
       title: "Savings Calculator",
       description: "Plan your financial future"),
-  QuickActionModel(
+  ExploreOptionModel(
       imagePath: "assets/icons/health_insurance.png",
       title: "Health Insurance",
       description: "Hospital bills covered up tp ${rupee}10 lakh"),
+];
+
+List<ExploreOptionModel> exploreMoreLIst = [
+  ExploreOptionModel(
+      imagePath: "assets/icons/gold.png",
+      title: "Gold Lease",
+      description: "Put your gold to work"),
+  ExploreOptionModel(
+      imagePath: "assets/icons/promo_code.png",
+      title: "Gold Voucher",
+      description: "Celebrate every occassion with gold and diamond vouchers"),
+  ExploreOptionModel(
+      imagePath: "assets/icons/people.png",
+      title: "Duo",
+      description: "Invite your friends to save and win exciting rewards"),
 ];
 
 List<RewardModel> rewardsList = [
