@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tme_pune/view/screen/save_manually/save_manually_screen.dart';
 
 import '../../../constants.dart';
 
@@ -45,7 +46,9 @@ class SaveNowContainer extends StatelessWidget {
 
           // Button
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, SaveManuallyScreen.routeName);
+              },
               style: ButtonStyle(
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10))),

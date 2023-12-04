@@ -21,6 +21,7 @@ class _InRupeeTabState extends State<InRupeeTab> {
       children: [
         TextFormField(
           controller: _rsController,
+          keyboardType: TextInputType.number,
           autofocus: true,
           decoration: InputDecoration(
               border: OutlineInputBorder(

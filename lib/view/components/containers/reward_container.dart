@@ -29,6 +29,7 @@ class RewardContainer extends StatelessWidget {
           const SizedBox(height: 15),
           Text(
             rewardModel.title ?? "",
+            textAlign: TextAlign.center,
             style: TextStyle(
                 color: isOutlined ? lightPurpleColor : Colors.white,
                 fontSize: 15),

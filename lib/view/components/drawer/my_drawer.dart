@@ -3,6 +3,7 @@ import 'package:tme_pune/constants.dart';
 import 'package:tme_pune/data/demo_data_list.dart';
 import 'package:tme_pune/view/components/buttons/logout_button.dart';
 import 'package:tme_pune/view/components/containers/reward_container.dart';
+import 'package:tme_pune/view/screen/page_not_built.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -60,9 +61,16 @@ class MyDrawer extends StatelessWidget {
           mainAxisSpacing: 10,
           crossAxisSpacing: 10),
       itemBuilder: (context, index) {
-        return RewardContainer(
-          rewardModel: rewardsList[index],
-          isOutlined: true,
+        return InkWell(
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, PageNotBuiltScreen.routeName,
+                arguments: rewardsList[index].title);
+          },
+          child: RewardContainer(
+            rewardModel: rewardsList[index],
+            isOutlined: true,
+          ),
         );
       });
 

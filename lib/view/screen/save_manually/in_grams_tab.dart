@@ -21,6 +21,8 @@ class _InGramsTabState extends State<InGramsTab> {
       children: [
         TextFormField(
           controller: _gmController,
+                        keyboardType: TextInputType.number,
+
           autofocus: true,
           textAlign: TextAlign.right,
           decoration: InputDecoration(

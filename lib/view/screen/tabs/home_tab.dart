@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:tme_pune/constants.dart';
 import 'package:tme_pune/view/components/buttons/status_button.dart';
 import 'package:tme_pune/view/components/containers/live_gold_price_icon_container.dart';
+import 'package:tme_pune/view/screen/page_not_built.dart';
+import 'package:tme_pune/view/screen/periodic_savings/daily_savings_screen.dart';
+import 'package:tme_pune/view/screen/save_manually/save_manually_screen.dart';
 
 import '../../../data/demo_data_list.dart';
 import '../../components/containers/quick_action_container.dart';
@@ -37,19 +42,25 @@ class _HomeTabState extends State<HomeTab> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 getTitle("Recommended for you"),
-                const RecommendationTile(
+                RecommendationTile(
                   imageAddress: "assets/icons/money.png",
                   title: "Cashback just for you",
                   subtitle: "Get upto Rs10 assured winnings today",
                   showOfferExpiryTag: true,
+                  onTap: () {
+                    Navigator.pushNamed(context, SaveManuallyScreen.routeName);
+                  },
                 ),
                 getGap(),
-                const RecommendationTile(
+                RecommendationTile(
                   imageAddress: "assets/icons/salary.png",
                   title: "Save in Gold daily!",
                   subtitle:
                       "Automatically save in 24k gold everyday, start with Rs.10/day",
                   showOfferExpiryTag: false,
+                  onTap: () {
+                    Navigator.pushNamed(context, DailySavingScreen.routeName);
+                  },
                 ),
               ],
             ),
@@ -88,8 +99,15 @@ class _HomeTabState extends State<HomeTab> {
                     scrollDirection: Axis.horizontal,
                     itemCount: quickActionsList.length,
                     itemBuilder: (context, index) {
-                      return QucikActionContainer(
-                          quickActionModel: quickActionsList[index]);
+                      return InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, PageNotBuiltScreen.routeName,
+                              arguments: quickActionsList[index].title);
+                        },
+                        child: QucikActionContainer(
+                            quickActionModel: quickActionsList[index]),
+                      );
                     },
                     separatorBuilder: (context, index) {
                       return const SizedBox(width: 15);
@@ -116,14 +134,21 @@ class _HomeTabState extends State<HomeTab> {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 120,
+                      maxCrossAxisExtent: 160,
                       childAspectRatio: 1,
                       crossAxisSpacing: 12,
                       mainAxisSpacing: 12),
                   itemCount: rewardsList.length,
                   itemBuilder: (context, index) {
-                    return RewardContainer(
-                      rewardModel: rewardsList[index],
+                    return InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, PageNotBuiltScreen.routeName,
+                            arguments: rewardsList[index].title);
+                      },
+                      child: RewardContainer(
+                        rewardModel: rewardsList[index],
+                      ),
                     );
                   },
                 )
@@ -141,20 +166,29 @@ class _HomeTabState extends State<HomeTab> {
 
   SliverAppBar _getAppBar() => SliverAppBar(
         toolbarHeight: 65,
-        backgroundColor: Colors.transparent,
+        floating: true,
+        backgroundColor: themeColor,
         leading: IconButton(
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
             icon: const Icon(Icons.menu)),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: LiveGoldPriceIconContainer(),
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              children: [
+                const LiveGoldPriceIconContainer(),
+                Shimmer.fromColors(
+                    baseColor: Colors.transparent,
+                    highlightColor: Colors.white,
+                    child: const LiveGoldPriceIconContainer()),
+              ],
+            ),
           ),
-          SizedBox(width: 20),
-          StatusButton(),
-          SizedBox(width: 20),
+          const SizedBox(width: 20),
+          const StatusButton(),
+          const SizedBox(width: 20),
         ],
       );
 
