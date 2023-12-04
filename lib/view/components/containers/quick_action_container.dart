@@ -3,8 +3,10 @@ import 'package:tme_pune/constants.dart';
 import 'package:tme_pune/data/models/quick_action_model.dart';
 
 class QucikActionContainer extends StatelessWidget {
-  const QucikActionContainer({super.key, required this.quickActionModel});
+  const QucikActionContainer(
+      {super.key, required this.quickActionModel, this.maxLines = 2});
   final ExploreOptionModel quickActionModel;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class QucikActionContainer extends StatelessWidget {
               Text(
                 quickActionModel.description ?? "",
                 overflow: TextOverflow.ellipsis,
-                maxLines: 2,
+                maxLines: maxLines,
                 style: TextStyle(color: lightPurpleColor),
               ),
             ],

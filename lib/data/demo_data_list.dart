@@ -25,7 +25,7 @@ List<ExploreOptionModel> quickActionsList = [
       description: "Hospital bills covered up tp ${rupee}10 lakh"),
 ];
 
-List<ExploreOptionModel> exploreMoreLIst = [
+List<ExploreOptionModel> exploreMoreList = [
   ExploreOptionModel(
       imagePath: "assets/icons/gold.png",
       title: "Gold Lease",
@@ -38,6 +38,12 @@ List<ExploreOptionModel> exploreMoreLIst = [
       imagePath: "assets/icons/people.png",
       title: "Duo",
       description: "Invite your friends to save and win exciting rewards"),
+];
+
+List<ExploreOptionModel> setupAutomaticSavingsList = [
+  ExploreOptionModel(imagePath: "assets/icons/salary.png", title: "Daily Savings", description: "Automate your daily savings in gold with as low as ${rupee}10"),
+  ExploreOptionModel(imagePath: "assets/icons/calendar2.png", title: "Weekly Savings", description: "Save a fixed amount every week towards your gold savings"),
+  ExploreOptionModel(imagePath: "assets/icons/salary.png", title: "Monthly Savings", description: "Save a larger amount every month towards your gold savings")
 ];
 
 List<RewardModel> rewardsList = [

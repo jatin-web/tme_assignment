@@ -30,6 +30,7 @@ class _HomeTabState extends State<HomeTab> {
     return CustomScrollView(
       slivers: [
         _getAppBar(),
+
         const SliverToBoxAdapter(
           child: StartTodayContainer(),
         ),
@@ -160,6 +161,53 @@ class _HomeTabState extends State<HomeTab> {
 
         getSliverGap(height: 10),
 
+        // ------------- Setup Automatic Savings -----------
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                getTitle("Setup Automatic Savings"),
+                SizedBox(
+                  height: 170,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: setupAutomaticSavingsList.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          if (index == 0) {
+                            Navigator.pushNamed(
+                              context,
+                              DailySavingScreen.routeName,
+                            );
+                          } else {
+                            Navigator.pushNamed(
+                              context,
+                              PageNotBuiltScreen.routeName,
+                              arguments: setupAutomaticSavingsList[index].title,
+                            );
+                          }
+                        },
+                        child: QucikActionContainer(
+                          quickActionModel: setupAutomaticSavingsList[index],
+                          maxLines: 3,
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(width: 15);
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+
+        getSliverGap(height: 10),
+
         // --------------- Quest ---------------
         SliverToBoxAdapter(
           child: Padding(
@@ -185,16 +233,16 @@ class _HomeTabState extends State<HomeTab> {
                   height: 150,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemCount: exploreMoreLIst.length,
+                    itemCount: exploreMoreList.length,
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
                           Navigator.pushNamed(
                               context, PageNotBuiltScreen.routeName,
-                              arguments: exploreMoreLIst[index].title);
+                              arguments: exploreMoreList[index].title);
                         },
                         child: QucikActionContainer(
-                            quickActionModel: exploreMoreLIst[index]),
+                            quickActionModel: exploreMoreList[index]),
                       );
                     },
                     separatorBuilder: (context, index) {

@@ -19,6 +19,7 @@ class RouteNavigator {
       case DailySavingScreen.routeName:
         return MaterialPageRoute(
             builder: (context) => const DailySavingScreen());
+
       case PageNotBuiltScreen.routeName:
         String title = args == null ? "" : args as String;
         return MaterialPageRoute(
