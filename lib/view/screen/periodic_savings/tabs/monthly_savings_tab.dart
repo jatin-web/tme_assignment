@@ -1,12 +1,12 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class MonthlySavingsTab extends StatelessWidget {
-//   const MonthlySavingsTab({super.key});
+class MonthlySavingsTab extends StatelessWidget {
+  const MonthlySavingsTab({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: const Text("Monthly"),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: const Text("Monthly"),
+    );
+  }
+}
